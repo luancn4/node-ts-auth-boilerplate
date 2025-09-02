@@ -2,7 +2,7 @@ import { User } from '../models/User';
 
 export const userService = {
   async getUsers(): Promise<User[]> {
-    return User.scope('withPassword').findAll();
+    return User.findAll();
   },
 
   // async updateUser(id: string, user: User) {
