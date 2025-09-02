@@ -2,6 +2,8 @@ import app from './app';
 import config from './config/config';
 import { sequelize } from './config/database';
 
+const PORT = process.env.PORT || config.port;
+
 (async () => {
   try {
     await sequelize.authenticate();
@@ -10,8 +12,8 @@ import { sequelize } from './config/database';
     await sequelize.sync({ alter: true });
     console.log('Tables synchronized');
 
-    app.listen(config.port, () => {
-      console.log(`Server running on http://localhost:${config.port}`);
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
     });
   } catch (error) {
     console.error('Error starting application:', error);
