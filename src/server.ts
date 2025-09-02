@@ -6,6 +6,10 @@ const PORT = process.env.PORT || config.port;
 
 (async () => {
   try {
+    console.log('Starting app...');
+    console.log('PORT env:', process.env.PORT);
+    console.log('DB host:', process.env.MYSQLHOST);
+
     await sequelize.authenticate();
     console.log('Connected to database');
 
